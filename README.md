@@ -3,7 +3,7 @@ RESTapi zapisujące i odczytujące książki do bazy danych MySQL.
 
 # Wymagania
 - Docker
-- JDK 11
+- JDK 21
 - Maven
 
 # Uruchomienie bazy danych

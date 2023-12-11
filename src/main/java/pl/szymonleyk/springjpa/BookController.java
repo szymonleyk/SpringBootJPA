@@ -1,22 +1,20 @@
 package pl.szymonleyk.springjpa;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 public class BookController {
+    private final BookRepository bookRepository;
 
-    @Autowired
-    private BookRepository bookRepository;
+    public BookController(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
 
     @PostMapping(path="/books")
-    public @ResponseBody String add (@RequestBody Book book) {
-        bookRepository.save(book);
-        return "Saved";
+    public @ResponseBody Book add (@RequestBody Book book) {
+        return bookRepository.save(book);
     }
 
     @GetMapping(path="/books")
